@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women's Financial Empowerment</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/compromise@13.7.0/dist/compromise.min.js"></script>
+  <style>
+    /* Custom styling */
+    .chat-content {
+      height: 200px;
+      overflow-y: auto;
+    }
+    .fixed-chat {
+      width: 90%;
+      max-width: 400px;
+      right: 5%;
+    }
+  </style>
+</head>
+<body class="bg-gray-200">
+  <header class="bg-blue-600 py-4 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Women's Financial Empowerment</h1>
+      <div class="flex items-center">
+        <span class="material-icons mr-2">account_balance</span>
+        <span>Learn. Borrow. Grow.</span>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container mx-auto py-8">
+    <!-- Reporting Portal -->
+    <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+      <h2 class="text-2xl font-bold text-blue-600 mb-4">Report Abuse</h2>
+      <p class="mb-4">If you have experienced any form of abuse, please report it here. Your information will be kept confidential.</p>
+      
+      <form id="reportForm">
+        <div class="mb-4">
+          <label class="block text-gray-700 font-medium mb-2" for="name">Name (Optional)</label>
+          <input type="text" id="name" name="name" class="w-full border rounded-lg px-4 py-2" placeholder="Your name">
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-700 font-medium mb-2" for="contact">Contact (Optional)</label>
+          <input type="text" id="contact" name="contact" class="w-full border rounded-lg px-4 py-2" placeholder="Your contact info">
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-700 font-medium mb-2" for="details">Details of Abuse</label>
+          <textarea id="details" name="details" class="w-full border rounded-lg px-4 py-2" placeholder="Describe the incident" required></textarea>
+        </div>
+        
+        <button type="button" id="submitReport" class="bg-blue-600 hover:bg-pink-600 text-white px-4 py-2 rounded">Submit Report</button>
+      </form>
+      
+      <div id="reportStatus" class="mt-4 text-sm text-green-600 hidden">Your report has been submitted. Thank you.</div>
+    </section>
+  </main>
+
+  <footer class="bg-blue-600 py-4 text-white text-center">
+    <p>&copy; 2023 Women's Financial Empowerment. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('submitReport').addEventListener('click', () => {
+      const details = document.getElementById('details').value.trim();
+      
+      if (!details) {
+        alert('Please provide details of the abuse.');
+        return;
+      }
+
+      // Simulate report submission
+      document.getElementById('reportForm').reset();
+      const reportStatus = document.getElementById('reportStatus');
+      reportStatus.classList.remove('hidden');
+
+      setTimeout(() => {
+        reportStatus.classList.add('hidden');
+      }, 3000);  // Hide status message after 3 seconds
+    });
+  </script>
+</body>
+</html>
